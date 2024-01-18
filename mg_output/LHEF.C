@@ -81,74 +81,11 @@ void LHEF::Loop()
       }//[END]particle loop  
    }//[END]Event Loop
 
-   double _x1=0.1, _y1=0.7, _x2=0.5, _y2=0.9;
-   TLegend *leg=new TLegend(_x1,_y1,_x2,_y2);
-   leg->AddEntry(h_x_b_log,"b");
-   leg->AddEntry(h_x_bbar_log,"#bar{b}");
-   leg->Draw();
-
-
-
-   TCanvas *cnew = new TCanvas("cnew", "canvas_new", 800, 800);
-   TPad *pad1 = new TPad("pad1", "pad1", 0, 0.3, 1, 1.0);
-   pad1->SetBottomMargin(0); // Upper and lower plot are joined
-   pad1->SetGridx();         // Vertical grid
-   pad1->Draw();             // Draw the upper pad: pad1
-   pad1->cd();               // pad1 becomes the current pad
-   h_x_bbar_log->SetStats(0);          // No statistics on upper plot
-   h_x_bbar_log->Draw();
-   h_x_bbar_log->SetLineColor(2);
-   h_x_bbar_log->SetTitle("x(b/#bar{b})");
-   h_x_b_log->Draw("sames");
-   h_x_b_log->SetLineColor(4);
-   leg->Draw();
-   h_x_b_log->SetStats(0);
-   h_x_bbar_log->SetStats(0);
-   cnew->cd();          // Go back to the main canvas before defining pad2
-
-   double _ymax=max(h_x_bbar_log->GetMaximum(),h_x_b_log->GetMaximum());
-   h_x_bbar_log->SetMaximum(_ymax);
-   h_x_b_log->SetMaximum(_ymax);
-   TPad *pad2 = new TPad("pad2", "pad2", 0, 0.05, 1, 0.3);
-   pad2->SetTopMargin(0);
-   pad2->SetBottomMargin(0.2);
-   pad2->SetGridx(); // vertical grid
-   pad2->Draw();
-   pad2->cd();       // pad2 becomes the current pad
-
-
-
-
-   
-   TH1D *hratio = (TH1D*)h_x_bbar_log->Clone("hratio");
-   hratio->SetLineColor(kBlack);
-   hratio->SetMinimum(0.5);  // Define Y ..
-   hratio->SetMaximum(1.5); // .. range
-   hratio->Sumw2();
-   hratio->SetStats(0);      // No statistics on lower plot
-   hratio->Divide(h_x_b_log);
-   hratio->SetMarkerStyle(21);
-   hratio->Draw("ep");       // Draw the ratio plot
-
-   TLine *line = new TLine(-5,1,0,1);//TLine (Double_t x1, Double_t y1, Double_t x2, Double_t y2)
-   line->Draw("same");
-   line->SetLineColor(2);
-
-   
-   hratio->GetYaxis()->SetTitle("#bar{b}/b");
-   hratio->GetYaxis()->SetNdivisions(505);
-   hratio->GetYaxis()->SetTitleSize(20);
-   hratio->GetYaxis()->SetTitleFont(43);
-   hratio->GetYaxis()->SetTitleOffset(1.55);
-   hratio->GetYaxis()->SetLabelFont(43); // Absolute font size in pixel (precision 3)
-   hratio->GetYaxis()->SetLabelSize(15);
-
-   hratio->GetXaxis()->SetTitleSize(20);
-   hratio->GetXaxis()->SetTitleFont(43);
-   hratio->GetXaxis()->SetTitleOffset(4.);
-   hratio->GetXaxis()->SetLabelFont(43); // Absolute font size in pixel (precision 3)
-   hratio->GetXaxis()->SetLabelSize(15);
-   hratio->SetTitle("");
-   cnew->SaveAs("ratio.pdf");
+   TFile *newfile = new TFile("histos.root","RECREATE");
+   h_x_bbar_log->Write();
+   h_x_b_log->Write();
+   h_x_g_log->Write();
+   h_x_other_log->Write();
+   newfile->Close();
    
 }
