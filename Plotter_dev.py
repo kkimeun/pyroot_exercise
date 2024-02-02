@@ -8,15 +8,15 @@ tfile=ROOT.TFile.Open(filepath)
 #tfile.ls()
 
 dict_h=OrderedDict({
-    "sbar":{
-        "path":"log_x_sbar",
+    "tbar":{
+        "path":"log_x_tbar",
         "color":2,
-        "name":"#bar{s}",
+        "name":"#bar{t}",
     },
-    "s":{
-        "path":"log_x_s",
+    "t":{
+        "path":"log_x_t",
         "color":4,
-        "name":"s",
+        "name":"t",
     },
     "g":{
         "path":"log_x_g",
@@ -37,7 +37,10 @@ for p in dict_h:
 
 c=ROOT.TCanvas()
 #print list(dict_h)
-for p in dict_h:
-    dict_h[p]['histo'].Draw('sames')
+for i,p in enumerate(dict_h):
+    if i == 0:
+      dict_h[p]['histo'].Draw()
+    else:
+      dict_h[p]['histo'].Draw('sames')
 
 c.SaveAs("test.pdf")
