@@ -43,4 +43,4 @@ for i,p in enumerate(dict_h):
     else:
       dict_h[p]['histo'].Draw('sames')
 
-c.SaveAs("test.pdf")
+c.SaveAs("output/test.pdf")

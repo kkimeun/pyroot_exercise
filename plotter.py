@@ -50,5 +50,5 @@ if __name__ == '__main__':
     myplotter.SetLineColor('sbar',2)
     myplotter.SetLineColor('s',4)
     myplotter.Draw()
-    myplotter.SaveAs("ssbarwithlegend.pdf")
+    myplotter.SaveAs("output/ssbarwithlegend.pdf")
         
