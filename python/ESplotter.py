@@ -1,7 +1,7 @@
 import ROOT
 import os
 from collections import OrderedDict
-class plotter:
+class ESplotter:
     def __init__(self,_name):
         self.name=_name
         self._mydict=OrderedDict()
@@ -40,6 +40,9 @@ class plotter:
             else:
                 self._mydict[p]['hist'].Draw('sames')
         self._mydict[p]['hist'].SetStats(0)
+        self._mydict[p]['hist'].GetYaxis().SetTitle(self.ytitle)
+        self._mydict[p]['hist'].GetYaxis().SetTitleSize(0.3)
+        
         self.leg=ROOT.TLegend(0.1, 0.7, 0.3, 0.9)
         for p in self._mydict:
             self.leg.AddEntry(self._mydict[p]['hist'], self._mydict[p]["name"])
@@ -61,6 +64,7 @@ class plotter:
             else:
                 self._mydict[p]['hist'].Draw('sames')
             self._mydict[p]['hist'].SetStats(0)
+            self._mydict[p]['hist'].GetYaxis().SetTitle(self.ytitle)
         ##--legend
         self.leg2=ROOT.TLegend(0.1, 0.7, 0.3, 0.9)
         for p in self._mydict:
@@ -90,13 +94,25 @@ class plotter:
             self._mydict[p]['hratio'].GetYaxis().SetNdivisions(8)
             self._mydict[p]['hratio'].GetYaxis().SetLabelSize(0.1)
             self._mydict[p]['hratio'].GetXaxis().SetLabelSize(0.1)
+            self._mydict[p]['hratio'].GetXaxis().SetTitle(self.xtitle)
+            self._mydict[p]['hratio'].GetXaxis().SetTitleSize(0.1)
+            self._mydict[p]['hratio'].GetYaxis().SetTitle("Ratio To "+self.deno)
+            self._mydict[p]['hratio'].GetYaxis().SetTitleSize(0.06)
         
         self.canvas2.cd()
         self.canvas2.SaveAs("output/ratio__"+self.name+".pdf")
 
-    def SetTitle(self,_canvastitle):
-        self.canvas.SetTitle(_canvastitle)
-        self.canvas2.SetTitle(_canvastitle)
+    def SetTitle(self,_title):
+        for p in self._mydict:
+            self._mydict[p]["hist"].SetTitle(_title)
+    def SetXTitle(self,_title):
+        self.xtitle=_title
+        #for p in self._mydict:
+        #    self._mydict[p]["hratio"].GetXaxis().SetTitle(_title)
+    def SetYTitle(self,_title):
+        self.ytitle=_title
+        #for p in self._mydict:
+        #    self._mydict[p]["hratio"].GetYaxis().SetTitle(_title)
     def SetLineColor(self,_name, _color):
         self._mydict[_name]['hist'].SetLineColor(_color)
     def SaveAs(self, _path):
@@ -114,6 +130,8 @@ if __name__ == '__main__':
     myplotter.AddHist('log_x_sbar','sbar','#bar{s}')
 
     myplotter.SetTitle("pp->l vl")
+    myplotter.SetXTitle("x")
+    myplotter.SetYTitle("Events")
     myplotter.SetLineColor('sbar',2)
     myplotter.SetLineColor('s',4)
     ##--NorRatioPlot

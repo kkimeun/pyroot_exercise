@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 import os
-from plotter1 import plotter
-myplotter=plotter("s_sbar")
+from ESplotter import ESplotter
+myplotter=ESplotter("s_sbar")
 _maindir = os.getenv("_maindir_pyroot_git")
 filepath=_maindir+"/mg_output/histos_ssbar.root"
 myplotter.ReadFile(filepath)
