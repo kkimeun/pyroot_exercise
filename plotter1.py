@@ -40,9 +40,10 @@ class plotter:
             else:
                 self._mydict[p]['hist'].Draw('sames')
         self._mydict[p]['hist'].SetStats(0)
-        self.leg=ROOT.TLegend(0.1, 0.7, 0.5, 0.9)
+        self.leg=ROOT.TLegend(0.1, 0.7, 0.3, 0.9)
         for p in self._mydict:
             self.leg.AddEntry(self._mydict[p]['hist'], self._mydict[p]["name"])
+            self.leg.SetTextSize(0.05)
         self.leg.Draw()
         os.system("mkdir -p output")
         self.canvas.SaveAs("output/"+self.name+".pdf")
@@ -64,6 +65,7 @@ class plotter:
         self.leg2=ROOT.TLegend(0.1, 0.7, 0.5, 0.9)
         for p in self._mydict:
             self.leg2.AddEntry(self._mydict[p]['hist'], self._mydict[p]["name"])
+            self.leg2.SetTextSize(0.05)
         self.leg2.Draw()
         ##--create pad2
         self.canvas2.cd()    
@@ -71,8 +73,6 @@ class plotter:
         self.pad2.SetTopMargin(0)
         self.pad2.SetBottomMargin(0.2)
         self.pad2.SetGridy()
-        #self.pad2.SetTitle("")
-        #self.pad2.range(0,0.5,1,1.5,2)
         self.pad2.Draw()
         self.pad2.cd()
         i=0
@@ -89,8 +89,7 @@ class plotter:
             self._mydict[p]['hratio'].GetYaxis().SetNdivisions(8)
             self._mydict[p]['hratio'].GetYaxis().SetLabelSize(0.1)
             self._mydict[p]['hratio'].GetXaxis().SetLabelSize(0.1)
-        #self.pad2.SetTitle("")
-        #self.pad2.GetLowYaxis().SetNdivisions(2)
+        
         self.canvas2.cd()
         self.canvas2.SaveAs("output/ratio__"+self.name+".pdf")
 
