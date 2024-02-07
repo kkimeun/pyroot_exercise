@@ -70,7 +70,7 @@ class plotter:
         self.pad2=ROOT.TPad("pad2", "pad2", 0, 0.05, 1, 0.3)
         self.pad2.SetTitle("")
         self.pad2.SetTopMargin(0)
-        self.pad2.SetBottomMargin(0.4)
+        self.pad2.SetBottomMargin(0.2)
         self.pad2.SetGridy()
         self.pad2.Draw()
         self.pad2.cd()
