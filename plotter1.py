@@ -17,9 +17,9 @@ from collections import OrderedDict
         #self.canvas=ROOT.TCanvas()
         self.pad=ROOT.TPad()
     
-    def RatioPlot(self,_name,_name):
-        h1 = self._mydict[_name]['hist']
-        h2 = self._mydict[_name]['hist'] 
+    def RatioPlot(self,_name1,_name2):
+        h1 = self._mydict[_name1]['hist']
+        h2 = self._mydict[_name2]['hist'] 
         h3 = h1.Clone("h3")
         h3.SetStats(0)
         h3.Divide(h2)
