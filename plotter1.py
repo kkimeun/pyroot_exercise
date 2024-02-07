@@ -43,7 +43,7 @@ class plotter:
         self.leg=ROOT.TLegend(0.1, 0.7, 0.3, 0.9)
         for p in self._mydict:
             self.leg.AddEntry(self._mydict[p]['hist'], self._mydict[p]["name"])
-            self.leg.SetTextSize(0.05)
+            self.leg.SetTextSize(0.01)
         self.leg.Draw()
         os.system("mkdir -p output")
         self.canvas.SaveAs("output/"+self.name+".pdf")
@@ -62,10 +62,10 @@ class plotter:
                 self._mydict[p]['hist'].Draw('sames')
             self._mydict[p]['hist'].SetStats(0)
         ##--legend
-        self.leg2=ROOT.TLegend(0.1, 0.7, 0.5, 0.9)
+        self.leg2=ROOT.TLegend(0.1, 0.7, 0.3, 0.9)
         for p in self._mydict:
             self.leg2.AddEntry(self._mydict[p]['hist'], self._mydict[p]["name"])
-            self.leg2.SetTextSize(0.05)
+            self.leg2.SetTextSize(0.01)
         self.leg2.Draw()
         ##--create pad2
         self.canvas2.cd()    
