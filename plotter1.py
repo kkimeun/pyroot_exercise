@@ -43,7 +43,7 @@ class plotter:
         self.leg=ROOT.TLegend(0.1, 0.7, 0.3, 0.9)
         for p in self._mydict:
             self.leg.AddEntry(self._mydict[p]['hist'], self._mydict[p]["name"])
-            self.leg.SetTextSize(0.01)
+            self.leg.SetTextSize(0.05)
         self.leg.Draw()
         os.system("mkdir -p output")
         self.canvas.SaveAs("output/"+self.name+".pdf")
@@ -65,7 +65,7 @@ class plotter:
         self.leg2=ROOT.TLegend(0.1, 0.7, 0.3, 0.9)
         for p in self._mydict:
             self.leg2.AddEntry(self._mydict[p]['hist'], self._mydict[p]["name"])
-            self.leg2.SetTextSize(0.01)
+            self.leg2.SetTextSize(0.05)
         self.leg2.Draw()
         ##--create pad2
         self.canvas2.cd()    
@@ -112,7 +112,7 @@ if __name__ == '__main__':
     myplotter.SetLineColor('sbar',2)
     myplotter.SetLineColor('s',4)
     ##--NorRatioPlot
-    #myplotter.DrawNoRatio()
+    myplotter.DrawNoRatio()
     ##--RatioPlot
     myplotter.SetDeno("s")
     myplotter.DrawRatio()
