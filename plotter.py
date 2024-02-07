@@ -23,11 +23,10 @@ class plotter:
                 self._mydict[p]['hist'].Draw('sames')
             self._mydict[p]['hist'].SetStats(0)
        
-
-        #for p in (self._mydict):
-
         leg=ROOT.TLegend(0.1, 0.7, 0.5, 0.9)
-        leg.AddEntry(self._mydict[p]['hist'], self._mydict[p]["name"])
+        for p in self._mydict:
+            leg.AddEntry(self._mydict[p]['hist'], self._mydict[p]["name"])
+        
         leg.Draw()
           
 
