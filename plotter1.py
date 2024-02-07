@@ -71,7 +71,7 @@ class plotter:
         self.pad2.SetTopMargin(0)
         self.pad2.SetBottomMargin(0.2)
         self.pad2.SetGridy()
-        self.pad2.SetTitle("")
+        #self.pad2.SetTitle("")
         #self.pad2.range(0,0.5,1,1.5,2)
         self.pad2.Draw()
         self.pad2.cd()
@@ -85,6 +85,7 @@ class plotter:
             else:
                 self._mydict[p]['hratio'].Draw('sames')
             i+=1
+            self._mydict[p]['hratio'].SetTitle("")  
         #self.pad2.SetTitle("")
         #self.pad2.GetLowYaxis().SetNdivisions(2)
         self.canvas2.cd()
