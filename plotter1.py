@@ -86,8 +86,9 @@ class plotter:
                 self._mydict[p]['hratio'].Draw('sames')
             i+=1
             self._mydict[p]['hratio'].SetTitle("")
-            self._mydict[p]['hratio'].GetYaxis().SetNdivisions(4)
-            self._mydict[p]['hratio'].GetYaxis().SetLabelSize(0.05)  
+            self._mydict[p]['hratio'].GetYaxis().SetNdivisions(8)
+            self._mydict[p]['hratio'].GetYaxis().SetLabelSize(0.1)
+            self._mydict[p]['hratio'].GetXaxis().SetLabelSize(0.1)
         #self.pad2.SetTitle("")
         #self.pad2.GetLowYaxis().SetNdivisions(2)
         self.canvas2.cd()
