@@ -94,13 +94,16 @@ class plotter:
         self.canvas2.cd()
         self.canvas2.SaveAs("output/ratio__"+self.name+".pdf")
 
+    def SetTitle(self,_canvastitle):
+        self.canvas.SetTitle(_canvastitle)
+        self.canvas2.SetTitle(_canvastitle)
     def SetLineColor(self,_name, _color):
         self._mydict[_name]['hist'].SetLineColor(_color)
     def SaveAs(self, _path):
         self.canvas.SaveAs(_path)
     def ReadFile(self, _filepath):
         self.tfile=ROOT.TFile.Open(_filepath)
-
+    
         
 if __name__ == '__main__':
     myplotter=plotter("s_sbar")
@@ -110,6 +113,7 @@ if __name__ == '__main__':
     myplotter.AddHist('log_x_s','s','s')
     myplotter.AddHist('log_x_sbar','sbar','#bar{s}')
 
+    myplotter.SetTitle("pp->l vl")
     myplotter.SetLineColor('sbar',2)
     myplotter.SetLineColor('s',4)
     ##--NorRatioPlot
@@ -117,5 +121,6 @@ if __name__ == '__main__':
     ##--RatioPlot
     myplotter.SetDeno("s")
     myplotter.DrawRatio()
+    
 
         
