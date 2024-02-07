@@ -14,9 +14,7 @@ class plotter:
         }
     def GetInfo(self,_name):
         return self._mydict[_name]
-    #def Draw(self):
-    #    #self.canvas=ROOT.TCanvas()
-    #    self.pad=ROOT.TPad()
+
     def SetName(self, _name):
         self.name=_name
     def SetDeno(self, _deno):
@@ -35,7 +33,7 @@ class plotter:
 
     def DrawNoRatio(self):
         ##---No RatioPlot--##
-        self.canvas=ROOT.TCanvas()
+        self.canvas=ROOT.TCanvas("c1","c1",800,800)
         for i,p in enumerate(self._mydict):
             if i==0:
                 self._mydict[p]['hist'].Draw()
@@ -49,10 +47,11 @@ class plotter:
         os.system("mkdir -p output")
         self.canvas.SaveAs("output/"+self.name+".pdf")
     def DrawRatio(self):
-        self.canvas2=ROOT.TCanvas()
+        self.canvas2=ROOT.TCanvas("c2","c2",800,800)
         self.pad1 = ROOT.TPad("pad1", "pad1", 0, 0.3, 1, 1.0)
         self.pad1.SetBottomMargin(0)
         self.pad1.SetGridx()
+        self.pad1.Draw()
         self.pad1.cd()
         ##--draw hist
         for i,p in enumerate(self._mydict):
@@ -63,24 +62,29 @@ class plotter:
             self._mydict[p]['hist'].SetStats(0)
         ##--legend
         self.leg2=ROOT.TLegend(0.1, 0.7, 0.5, 0.9)
-        self.leg2.AddEntry(self._mydict[p]['hist'], self._mydict[p]["name"])
+        for p in self._mydict:
+            self.leg2.AddEntry(self._mydict[p]['hist'], self._mydict[p]["name"])
         self.leg2.Draw()
         ##--create pad2
         self.canvas2.cd()    
         self.pad2=ROOT.TPad("pad2", "pad2", 0, 0.05, 1, 0.3)
+        self.pad2.SetTitle("")
         self.pad2.SetTopMargin(0)
-        self.pad2.SetBottomMargin(0.2)
-        self.pad2.SetGridx()
+        self.pad2.SetBottomMargin(0.4)
+        self.pad2.SetGridy()
         self.pad2.Draw()
         self.pad2.cd()
-        
-        for i,p in enumerate(self._mydict):
+        i=0
+        for p in self._mydict:
+            if p==self.deno:continue
             self.SetRatioHist(p)
             ##-->Now we have self._mydict[proc]['hratio'] obejcts
             if i==0:
                 self._mydict[p]['hratio'].Draw()
             else:
                 self._mydict[p]['hratio'].Draw('sames')
+            i+=1
+
         self.canvas2.cd()
         self.canvas2.SaveAs("output/ratio__"+self.name+".pdf")
 
@@ -103,7 +107,7 @@ if __name__ == '__main__':
     myplotter.SetLineColor('sbar',2)
     myplotter.SetLineColor('s',4)
     ##--NorRatioPlot
-    myplotter.DrawNoRatio()
+    #myplotter.DrawNoRatio()
     ##--RatioPlot
     myplotter.SetDeno("s")
     myplotter.DrawRatio()
