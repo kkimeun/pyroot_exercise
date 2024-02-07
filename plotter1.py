@@ -68,7 +68,6 @@ class plotter:
         ##--create pad2
         self.canvas2.cd()    
         self.pad2=ROOT.TPad("pad2", "pad2", 0, 0.05, 1, 0.3)
-        self.pad2.SetTitle("")
         self.pad2.SetTopMargin(0)
         self.pad2.SetBottomMargin(0.2)
         self.pad2.SetGridy(1)
@@ -84,7 +83,7 @@ class plotter:
             else:
                 self._mydict[p]['hratio'].Draw('sames')
             i+=1
-
+        self.pad2.SetTitle("")
         self.canvas2.cd()
         self.canvas2.SaveAs("output/ratio__"+self.name+".pdf")
 
