@@ -53,7 +53,7 @@ class ESplotter:
     def DrawRatio(self):
         self.canvas2=ROOT.TCanvas("c2","c2",800,800)
         self.pad1 = ROOT.TPad("pad1", "pad1", 0, 0.3, 1, 1.0)
-        self.pad1.SetBottomMargin(0.2)
+        self.pad1.SetBottomMargin(0.05)
         self.pad1.SetGridx()
         self.pad1.Draw()
         self.pad1.cd()
