@@ -34,12 +34,13 @@ class ESplotter:
             yerr=self._mydict[p]['hist'].GetBinError(j)
             ydeno=self._mydict[self.deno]['hist'].GetBinContent(j)
             ydenoerr=self._mydict[self.deno]['hist'].GetBinError(j)
-            totalerr=sqrt(yerr**2+ydenoerr**2)
-            if ydeno>0:
-                total_relerr=totalerr/ydeno
+            if y>0 and ydeno>0:
+                total_relerr=sqrt(  (yerr/y)**2+(ydenoerr/ydeno)**2)
+                total_err=total_relerr/ydeno
             else:
                 total_relerr=0.
-            self._mydict[p]['hratio'].SetBinError(j,total_relerr)
+                total_err=0.
+            self._mydict[p]['hratio'].SetBinError(j,total_err)
             #if y>0:
             #    print "<",j,">"
             #    print "y->",y
