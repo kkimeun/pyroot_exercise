@@ -13,6 +13,7 @@ ytitle=conf["ytitle"]
 filepath=conf["input"]
 deno=conf["deno"]
 myplotter=ESplotter(name)
+myplotter.SetNormType(2)
 #_maindir = os.getenv("_maindir_pyroot_git")
 myplotter.ReadFile(filepath)
 for p in conf["hist"]:

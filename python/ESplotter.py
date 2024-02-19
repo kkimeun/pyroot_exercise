@@ -6,8 +6,17 @@ class ESplotter:
     def __init__(self,_name):
         self.name=_name
         self._mydict=OrderedDict()
+        self.norm_type=0
+    def SetNormType(self,_doNorm):
+        self.norm_type=_doNorm
     def AddHist(self,_path,_name,_title):
         _h=self.tfile.Get(_path)
+        norm=1
+        if self.norm_type==1:
+            norm=1/_h.Integral()
+        elif self.norm_type==2:
+            norm=1/_h.GetMaximum()
+        _h.Scale(norm)
         self._mydict[_name]={
             "hist":_h.Clone(),
             "name":_name,
