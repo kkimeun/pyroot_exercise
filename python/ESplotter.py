@@ -36,7 +36,7 @@ class ESplotter:
             ydenoerr=self._mydict[self.deno]['hist'].GetBinError(j)
             if y>0 and ydeno>0:
                 total_relerr=sqrt(  (yerr/y)**2+(ydenoerr/ydeno)**2)
-                total_err=total_relerr/ydeno
+                total_err=total_relerr*y/ydeno
             else:
                 total_relerr=0.
                 total_err=0.
