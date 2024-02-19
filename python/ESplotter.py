@@ -1,3 +1,4 @@
+from math import sqrt
 import ROOT
 import os
 from collections import OrderedDict
@@ -27,6 +28,26 @@ class ESplotter:
         hratio.Divide(hdeno)
         #return h3
         self._mydict[p]['hratio']=hratio.Clone()
+        ##---set Poisson error
+        for j in range(1,self._mydict[p]['hratio'].GetNbinsX()+1):
+            y=self._mydict[p]['hist'].GetBinContent(j)
+            yerr=self._mydict[p]['hist'].GetBinError(j)
+            ydeno=self._mydict[self.deno]['hist'].GetBinContent(j)
+            ydenoerr=self._mydict[self.deno]['hist'].GetBinError(j)
+            totalerr=sqrt(yerr**2+ydenoerr**2)
+            if ydeno>0:
+                total_relerr=totalerr/ydeno
+            else:
+                total_relerr=0.
+            self._mydict[p]['hratio'].SetBinError(j,total_relerr)
+            #if y>0:
+            #    print "<",j,">"
+            #    print "y->",y
+            #    print "yerr->",yerr
+            #    print "ydeno->",ydeno
+            #    print "ydenoerr->",ydenoerr
+            #    print "ratio err", self._mydict[p]['hratio'].GetBinError(j)
+
 
     def Draw(self):
         self.DrawNoRatio()
@@ -84,10 +105,11 @@ class ESplotter:
             if p==self.deno:continue
             self.SetRatioHist(p)
             ##-->Now we have self._mydict[proc]['hratio'] obejcts
+            
             if i==0:
-                self._mydict[p]['hratio'].Draw()
+                self._mydict[p]['hratio'].Draw("e1")
             else:
-                self._mydict[p]['hratio'].Draw('sames')
+                self._mydict[p]['hratio'].Draw('e1sames')
             i+=1
             self._mydict[p]['hratio'].SetTitle("")
             self._mydict[p]['hratio'].SetLineColor(1)
