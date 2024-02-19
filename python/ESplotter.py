@@ -73,7 +73,7 @@ class ESplotter:
         self.leg2.Draw()
         ##--create pad2
         self.canvas2.cd()    
-        self.pad2=ROOT.TPad("pad2", "pad2", 0, 0.05, 1, 0.25)
+        self.pad2=ROOT.TPad("pad2", "pad2", 0, 0.05, 1, 0.3)
         self.pad2.SetTopMargin(0.2)
         self.pad2.SetBottomMargin(0.2)
         self.pad2.SetGridy()
