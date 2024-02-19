@@ -91,7 +91,7 @@ class ESplotter:
             i+=1
             self._mydict[p]['hratio'].SetTitle("")
             self._mydict[p]['hratio'].SetLineColor(1)
-            self._mydict[p]['hratio'].GetYaxis().SetNdivisions(8)
+            self._mydict[p]['hratio'].GetYaxis().SetNdivisions(6)
             self._mydict[p]['hratio'].GetYaxis().SetLabelSize(0.1)
             self._mydict[p]['hratio'].GetXaxis().SetLabelSize(0.1)
             self._mydict[p]['hratio'].GetXaxis().SetTitle(self.xtitle)
