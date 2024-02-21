@@ -4,8 +4,8 @@ _maindir = os.getenv("_maindir_pyroot_git")
 
 conf={
     "name":"s_sbar with lepton pT > 200, using NNPDF23",
-    #"input":_maindir+"/mg_output/histos_ssbar.root",
-    "input":_maindir+"/mg_output/histos_ssbarwithpT.root"
+    "input":_maindir+"/mg_output/histos_ssbarwithpT.root",
+    #"input":_maindir+"/mg_output/histos_ssbarwithpT.root",
     "hist":OrderedDict({
         "s":{"path":"log_x_s","name":"s","title":"s","color":4},
         "sbar":{"path":"log_x_sbar","name":"sbar","title":"#bar{s}","color":2},
