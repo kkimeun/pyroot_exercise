@@ -10,7 +10,7 @@ conf={
         "e, x>0.001":{"path":"Eta_e_x>0.001","name":"e, x>0.001","title":"e, x>0.001","color":2},
         "e, x<0.001":{"path":"Eta_e_x<0.001","name":"e, x<0.001","title":"e, x<0.001","color":4},
     }),
-    "title":"pp->l vl electron Eta using NNPDF31_nlo_as_0119",
+    "title":"pp->l vl electron Eta using NNPDF31_nnlo_hessian_pdfas",
     "xtitle":"pT(e)",
     "ytitle":"Event",
     "deno":"e, x<0.001",
