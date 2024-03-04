@@ -39,7 +39,7 @@ def Run(confpath,normtype=0):
 	p_title=conf["hratio"][p]["title"]
 	p_color=conf["hratio"][p]["color"]
         myplotter.AddHist(p_path,p_name,p_title)
-	myplotter.SetLinecolor(p,p_color)               
+	myplotter.SetLineColor(p,p_color)               
     myplotter.DrawRatio()
 
 if __name__ == '__main__':
