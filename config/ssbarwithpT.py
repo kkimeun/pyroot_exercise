@@ -8,12 +8,12 @@ conf={
     "hist":OrderedDict({
         "e":{"path":"pT_e","name":"e","title":"e","color":12},
         "e, x>0.03":{"path":"pT_e_x>0.03","name":"e, x>0.03","title":"e, x>0.03","color":46},
-        "e, x<0.03":{"path":"pT_e_x<0.03","name":"e, x<0.03","title":"e, x<0.03","color":38},
+        "e, x<0.03":{"path":"pT_e_x<0.03","name":"e, x<0.03","title":"e, x<0.03","color":9},
     }),
     "hratio":OrderedDict({
 	"e":{"path":"pT_e","name":"e","title":"e","color":12},
 	"e, x>0.03":{"path":"pT_e_x>0.03","name":"e, x>0.03","title":"e, x>0.03","color":46},
-	"e, x<0.03":{"path":"pT_e_x<0.03","name":"e, x<0.03","title":"e, x<0.03","color":38},
+	"e, x<0.03":{"path":"pT_e_x<0.03","name":"e, x<0.03","title":"e, x<0.03","color":9},
      }),
     "title":"pp->l vl electron pT using NNPDF31_nnlo_hessian_pdfas",
     "xtitle":"pT(e)",
