@@ -6,12 +6,12 @@ conf={
     "name":"electron pT using NNPDF31",
     "input":_maindir+"/mg_output/histos_ssbarwithpTEta.root",
     "hist":OrderedDict({
-        "e":{"path":"pT_e","name":"e","title":"e","color":14},
+        "e":{"path":"pT_e","name":"e","title":"e","color":1},
         "e, x>0.03":{"path":"pT_e_x>0.03","name":"e, x>0.03","title":"e, x>0.03","color":2},
         "e, x<0.03":{"path":"pT_e_x<0.03","name":"e, x<0.03","title":"e, x<0.03","color":4},
     }),
     "hratio":OrderedDict({
-	"e":{"path":"pT_e","name":"e","title":"e","color":14},
+	"e":{"path":"pT_e","name":"e","title":"e","color":1},
 	"e, x>0.03":{"path":"pT_e_x>0.03","name":"e, x>0.03","title":"e, x>0.03","color":2},
 	"e, x<0.03":{"path":"pT_e_x<0.03","name":"e, x<0.03","title":"e, x<0.03","color":4},
      }),
