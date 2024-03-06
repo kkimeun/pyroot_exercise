@@ -10,9 +10,9 @@ conf={
         "s":{"path":"log_x_s","name":"s","title":"s","color":4},
         "sbar":{"path":"log_x_sbar","name":"sbar","title":"#bar{s}","color":2},
     }),
-    "hratio":OrderedDict({
-	"sbar":{"path":"log_x_sbar","name":"sbar","title":"#bar{s}","color":1},
-    }),
+    #"hratio":OrderedDict({
+	#"sbar":{"path":"log_x_sbar","name1":"sbar","title":"#bar{s}","color":1},
+    #}),
 
     "title":"pp->l vl with lepton pT < 5, using NNPDF31_nnlo_hessian_pdfas",
     "xtitle":"log(x)",
