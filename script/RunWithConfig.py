@@ -33,14 +33,14 @@ def Run(confpath,normtype=0):
     myplotter.DrawNoRatio()
     ##--RatioPlot
     myplotter.SetDeno(deno)
-    for p in conf["hratio"]:
-        p_path=conf["hratio"][p]["path"]
-	p_name=conf["hratio"][p]["name"]
-	p_title=conf["hratio"][p]["title"]
-	p_color=conf["hratio"][p]["color"]
-        myplotter.AddHist(p_path,p_name,p_title)
-	myplotter.SetLineColor(p,p_color)
-    myplotter.SetTitle(title)               
+    #for p in conf["hratio"]:
+        #p_path=conf["hratio"][p]["path"]
+	#p_name=conf["hratio"][p]["name"]
+	#p_title=conf["hratio"][p]["title"]
+	#p_color=conf["hratio"][p]["color"]
+        #myplotter.AddHist(p_path,p_name,p_title)
+	#myplotter.SetLineColor(p,p_color)
+    #myplotter.SetTitle(title)               
     myplotter.DrawRatio()
 
 if __name__ == '__main__':
