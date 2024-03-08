@@ -3,7 +3,7 @@ from collections import OrderedDict
 _maindir = os.getenv("_maindir_pyroot_git")
 
 conf={
-    "name":"s_sbar with invariant Mass (l+vl) < 5, using NNPDF31",
+    "name":"s_sbar with invariant Mass (l+vl) > 390, using NNPDF31",
     "input":_maindir+"/mg_output/histos_invariantmass.root",
     #"input":_maindir+"/mg_output/histos_ssbarwithpT.root",
     "hist":OrderedDict({
@@ -14,7 +14,7 @@ conf={
 	#"sbar":{"path":"log_x_sbar","name1":"sbar","title":"#bar{s}","color":1},
     #}),
 
-    "title":"pp->l vl with invariant Mass (l+vl) < 5, using NNPDF31_nnlo_hessian_pdfas",
+    "title":"pp->l vl with invariant Mass (l+vl) > 390, using NNPDF31_nnlo_hessian_pdfas",
     "xtitle":"log(x)",
     "ytitle":"Event",
     "deno":"s",
