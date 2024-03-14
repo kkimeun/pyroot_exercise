@@ -9,6 +9,7 @@ def Run(confpath,normtype=0):
     xtitle=conf["xtitle"]
     ytitle=conf["ytitle"]
     filepath=conf["input"]
+    filepath2=conf["input2"]
     deno=conf["deno"]
     suffix=""
     if normtype==1:
@@ -26,22 +27,33 @@ def Run(confpath,normtype=0):
         p_color=conf["hist"][p]["color"]
         myplotter.AddHist(p_path,p_name,p_title)
         myplotter.SetLineColor(p,p_color)
+
+    myplotter.ReadFile(filepath2)
+    for p in conf["hist"]:
+        p_path=conf["hist"][p]["path"]
+        p_name=conf["hist"][p]["name"]
+        p_title=conf["hist"][p]["title"]
+        p_color=conf["hist"][p]["color"]
+        myplotter.AddHist(p_path,p_name,p_title)
+        myplotter.SetLineColor(p,p_color)
+
     myplotter.SetTitle(title)
     myplotter.SetXTitle(xtitle)
     myplotter.SetYTitle(ytitle)
     ##--NorRatioPlot
-    myplotter.DrawNoRatio()
+    #myplotter.DrawNoRatio()
     ##--RatioPlot
     myplotter.SetDeno(deno)
-    for p in conf["hratio"]:
-        p_path=conf["hratio"][p]["path"]
-	p_name=conf["hratio"][p]["name"]
-	p_title=conf["hratio"][p]["title"]
-	p_color=conf["hratio"][p]["color"]
-        myplotter.AddHist(p_path,p_name,p_title)
-	myplotter.SetLineColor(p,p_color)
-    myplotter.SetTitle(title)               
+    #for p in conf["hratio"]:
+        #p_path=conf["hratio"][p]["path"]
+	#p_name=conf["hratio"][p]["name"]
+	#p_title=conf["hratio"][p]["title"]
+	#p_color=conf["hratio"][p]["color"]
+        #myplotter.AddHist(p_path,p_name,p_title)
+	#myplotter.SetLineColor(p,p_color)
+    #myplotter.SetTitle(title)               
     myplotter.DrawRatio()
+
 
 if __name__ == '__main__':
     confpath=sys.argv[1]
