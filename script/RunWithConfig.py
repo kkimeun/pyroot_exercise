@@ -30,11 +30,11 @@ def Run(confpath,normtype=0):
 
     myplotter.ReadFile(filepath2)
     for p in conf["hist"]:
-        p_path=conf["hist"][p]["path"]
-        p_name=conf["hist"][p]["name"]
-        p_title=conf["hist"][p]["title"]
+        p_path2=conf["hist"][p]["path"]
+        p_name2=conf["hist"][p]["name"]
+        p_title2=conf["hist"][p]["title"]
         p_color=conf["hist"][p]["color"]
-        myplotter.AddHist(p_path,p_name,p_title)
+        myplotter.AddHist(p_path2,p_name2,p_title2)
         myplotter.SetLineColor(p,p_color)
 
     myplotter.SetTitle(title)
