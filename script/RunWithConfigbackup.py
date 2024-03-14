@@ -8,8 +8,8 @@ def Run(confpath,normtype=0):
     title=conf["title"]
     xtitle=conf["xtitle"]
     ytitle=conf["ytitle"]
-    #filepath=conf["input"]
-    #filepath2=conf["input2"]
+    filepath=conf["input"]
+    filepath2=conf["input2"]
     deno=conf["deno"]
     suffix=""
     if normtype==1:
@@ -19,11 +19,8 @@ def Run(confpath,normtype=0):
     myplotter=ESplotter(name+suffix)
     myplotter.SetNormType(normtype)
     #_maindir = os.getenv("_maindir_pyroot_git")
-    #myplotter.ReadFile(filepath)
+    myplotter.ReadFile(filepath)
     for p in conf["hist"]:
-	p_input=conf["hist"][p]["input"]
-	print p_input
-	myplotter.ReadFile(p_input)
         p_path=conf["hist"][p]["path"]
         p_name=conf["hist"][p]["name"]
         p_title=conf["hist"][p]["title"]    
@@ -31,14 +28,14 @@ def Run(confpath,normtype=0):
         myplotter.AddHist(p_path,p_name,p_title)
         myplotter.SetLineColor(p,p_color)
 
-    #myplotter.ReadFile(filepath2)
-    #for p in conf["hist"]:
-    #    p_path=conf["hist"][p]["path"]
-    #    p_name=conf["hist"][p]["name"]
-    #    p_title=conf["hist"][p]["title"]
-    #    p_color=conf["hist"][p]["color"]
-    #    myplotter.AddHist(p_path,p_name,p_title)
-    #    myplotter.SetLineColor(p,p_color)
+    myplotter.ReadFile(filepath2)
+    for p in conf["hist"]:
+        p_path=conf["hist"][p]["path"]
+        p_name=conf["hist"][p]["name"]
+        p_title=conf["hist"][p]["title"]
+        p_color=conf["hist"][p]["color"]
+        myplotter.AddHist(p_path,p_name,p_title)
+        myplotter.SetLineColor(p,p_color)
 
     myplotter.SetTitle(title)
     myplotter.SetXTitle(xtitle)

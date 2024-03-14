@@ -1,16 +1,18 @@
 from math import sqrt
 import ROOT
 import os
+from copy import deepcopy
 from collections import OrderedDict
 class ESplotter:
     def __init__(self,_name):
         self.name=_name
         self._mydict=OrderedDict()
         self.norm_type=0
+        self.tfilelist=[]
     def SetNormType(self,_doNorm):
         self.norm_type=_doNorm
     def AddHist(self,_path,_name,_title):
-        _h=self.tfile.Get(_path)
+        _h=self.tfile.Get(_path).Clone()
         norm=1
         if self.norm_type==1:
             norm=1/_h.Integral()
@@ -64,7 +66,7 @@ class ESplotter:
 
     def DrawNoRatio(self):
         ##---No RatioPlot--##
-        self.canvas=ROOT.TCanvas("c1","c1",800,800)
+        self.canvas=ROOT.TCanvas("c1"+str(self.norm_type),"c1"+str(self.norm_type),800,800)
         for i,p in enumerate(self._mydict):
             if i==0:
                 self._mydict[p]['hist'].Draw()
@@ -82,7 +84,7 @@ class ESplotter:
         os.system("mkdir -p output")
         self.canvas.SaveAs("output/"+self.name+".pdf")
     def DrawRatio(self):
-        self.canvas2=ROOT.TCanvas("c2","c2",800,800)
+        self.canvas2=ROOT.TCanvas("c2"+str(self.norm_type),"c2"+str(self.norm_type),800,800)
         self.pad1 = ROOT.TPad("pad1", "pad1", 0, 0.3, 1, 1.0)
         self.pad1.SetBottomMargin(0.05)
         self.pad1.SetGridx()
@@ -152,9 +154,10 @@ class ESplotter:
     def SaveAs(self, _path):
         self.canvas.SaveAs(_path)
     def ReadFile(self, _filepath):
-        self.tfile=ROOT.TFile.Open(_filepath)
-    
-        
+        #self.tfile=ROOT.TFile.Open(_filepath)
+        _tfile=ROOT.TFile.Open(_filepath)
+        self.tfilelist.append(_tfile)
+        self.tfile=_tfile
 if __name__ == '__main__':
     myplotter=plotter("s_sbar")
     _maindir = os.getenv("_maindir_pyroot_git")
