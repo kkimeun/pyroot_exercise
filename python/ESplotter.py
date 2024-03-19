@@ -66,7 +66,7 @@ class ESplotter:
 
     def DrawNoRatio(self):
         ##---No RatioPlot--##
-        self.canvas=ROOT.TCanvas("c1"+str(self.norm_type),"c1"+str(self.norm_type),800,800)
+        self.canvas=ROOT.TCanvas("c1"+str(self.norm_type),"c1"+str(self.norm_type),900,900)
         for i,p in enumerate(self._mydict):
             if i==0:
                 self._mydict[p]['hist'].Draw()
@@ -81,7 +81,7 @@ class ESplotter:
         self.leg=ROOT.TLegend(0.1, 0.7, 0.3, 0.9)
         for p in self._mydict:
             self.leg.AddEntry(self._mydict[p]['hist'], self._mydict[p]["name"])
-            self.leg.SetTextSize(0.05)
+            self.leg.SetTextSize(0.03)
         self.leg.Draw()
         os.system("mkdir -p output")
         self.canvas.SaveAs("output/"+self.name+".pdf")
