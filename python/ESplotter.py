@@ -74,10 +74,16 @@ class ESplotter:
             else:
                 self._mydict[p]['hist'].Draw('sames')
             self._mydict[p]['hist'].SetStats(0)
-            self._mydict[p]['hist'].GetYaxis().SetTitle(self.ytitle)
-        #self._mydict[p]['hist'].GetYaxis().SetTitleSize(0.1)
+            #self._mydict[p]['hist'].GetYaxis().SetTitle(self.ytitle)
+            #self._mydict[p]['hist'].GetYaxis().SetTitleSize(0.1)
+            #self._mydict[p]['hist'].GetXaxis().SetTitle(self.xtitle)
+            #self._mydict[p]['hist'].GetXaxis().SetTitleSize(0.1)
+            self._mydict[p]['hist'].GetYaxis().SetLabelSize(0.1)
+            self._mydict[p]['hist'].GetXaxis().SetLabelSize(0.1)
             self._mydict[p]['hist'].GetXaxis().SetTitle(self.xtitle)
-        #self._mydict[p]['hist'].GetXaxis().SetTitleSize(0.1)
+            self._mydict[p]['hist'].GetXaxis().SetTitleSize(0.1)
+            self._mydict[p]['hist'].GetYaxis().SetTitle(self.ytitle)
+            self._mydict[p]['hist'].GetYaxis().SetTitleSize(0.06)
         
         self.leg=ROOT.TLegend(0.15, 0.7, 0.35, 0.9)
         for p in self._mydict:
