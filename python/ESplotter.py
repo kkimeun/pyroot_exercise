@@ -66,7 +66,7 @@ class ESplotter:
 
     def DrawNoRatio(self):
         ##---No RatioPlot--##
-        self.canvas=ROOT.TCanvas("c1"+str(self.norm_type),"c1"+str(self.norm_type),800,800)
+        self.canvas=ROOT.TCanvas("c1"+str(self.norm_type),"c1"+str(self.norm_type),1000,800)
 	self.canvas.SetLeftMargin(0.15)
         for i,p in enumerate(self._mydict):
             if i==0:
