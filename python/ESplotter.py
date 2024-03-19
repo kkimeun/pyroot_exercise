@@ -79,7 +79,7 @@ class ESplotter:
             self._mydict[p]['hist'].GetXaxis().SetTitle(self.xtitle)
         #self._mydict[p]['hist'].GetXaxis().SetTitleSize(0.1)
         
-        self.leg=ROOT.TLegend(0.15, 0.7, 0.3, 0.9)
+        self.leg=ROOT.TLegend(0.15, 0.7, 0.35, 0.9)
         for p in self._mydict:
             self.leg.AddEntry(self._mydict[p]['hist'], self._mydict[p]["name"])
             self.leg.SetTextSize(0.04)
