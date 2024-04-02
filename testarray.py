@@ -4,19 +4,20 @@ from numpy import array
 
 c=ROOT.TCanvas()
 loaded_array=np.load('/home/snuintern3/LHAPDFexercise/LHAPDF_exercise/arrays.npz')
-
-arr_x=loaded_array['arr_x']
+arr_logx=loaded_array['arr_logx']
+#arr_x=loaded_array['arr_x']
 arr_y=loaded_array['arr_y']
 #arr_z=loaded_array['arr_z']
 gr=ROOT.TGraphErrors()
-N=len(arr_x)
+N=len(arr_logx)
 for i in range(N):
-    x=arr_x[i]
+    logx=arr_logx[i]
+    #x=arr_x[i]
     y=arr_y[i]
     #z=arr_z[i]
     ex=0
     ey=0
-    gr.SetPoint(i,x,y)
+    gr.SetPoint(i,logx,y)
     gr.SetPointError(i,0,ey)
 
 mycolor=4

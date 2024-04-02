@@ -63,6 +63,7 @@ lhapdf.setVerbosity(0)
 #print "log x",'\t',"x",'\t',"s/s~","\t","err(s/s~)"
 #print "--------------------"
 #for x in [0.3,0.25,0.2,0.1,0.06,0.05,0.04,0.03,0.02,0.01,0.008,0.005,0.003,0.001,0.0001,0.00001,1e-6,1e-7,1e-8,1e-9,1e-10,1e-11]:
+arr_logx=[]
 arr_x=[]
 arr_y=[]
 arr_z=[]
@@ -73,11 +74,12 @@ for i in y:
     #r,r_err=GetStoSbar(x,Q2,lhapdf_name)
     #print x,'\t', s_pdf,"\t",r_err
     #print i,'\t',x,'\t', s_pdf, "\t",sbar_pdf
+    arr_logx.append(i)
     arr_x.append(x)
     arr_y.append(s_pdf)
     arr_z.append(sbar_pdf)
-
+print (arr_logx)
 print (arr_x)
 print (arr_y)
 print (arr_z)     
-np.savez('arrays.npz',arr_x=arr_x,arr_y=arr_y,arr_z=arr_z)
+np.savez('arrays.npz',arr_logx=arr_logx,arr_x=arr_x,arr_y=arr_y,arr_z=arr_z)
