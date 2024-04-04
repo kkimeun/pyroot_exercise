@@ -84,7 +84,7 @@ arr_s=[]
 arr_serr=[]
 arr_sbar=[]
 arr_sbarerr=[]
-y=np.arange(-3,0,0.5)
+y=np.arange(-2,-1,0.2)
 for i in y:
     x= 10**i
     s_pdf,sbar_pdf,s_err,sbar_err=GetStoSbar(x,Q2,lhapdf_name)

@@ -3,9 +3,9 @@ import ROOT
 from numpy import array
 
 c=ROOT.TCanvas()
-loaded_array=np.load('/home/snuintern3/LHAPDFexercise/LHAPDF_exercise/arrays2.npz')
+loaded_array=np.load('/home/snuintern3/LHAPDFexercise/LHAPDF_exercise/arrays.npz')
 arr_logx=loaded_array['arr_logx']
-#arr_x=loaded_array['arr_x']
+arr_x=loaded_array['arr_x']
 arr_s=loaded_array['arr_s']
 arr_sbar=loaded_array['arr_sbar']
 arr_serr=loaded_array['arr_serr']
@@ -16,17 +16,17 @@ gr2=ROOT.TGraphErrors()
 mg=ROOT.TMultiGraph()
 N=len(arr_logx)
 for i in range(N):
-    logx=arr_logx[i]
-    #x=arr_x[i]
+    #logx=arr_logx[i]
+    x=arr_x[i]
     s=arr_s[i]
     sbar=arr_sbar[i]
     ex=0
     ey1=arr_serr[i]
     ey2=arr_sbarerr[i]
-    gr1.SetPoint(i,logx,s)
+    gr1.SetPoint(i,x,s)
     gr1.SetPointError(i,0,ey1)
     
-    gr2.SetPoint(i,logx,sbar)
+    gr2.SetPoint(i,x,sbar)
     gr2.SetPointError(i,0,ey2)
 
 gr2.SetFillColorAlpha(2,0.3)
@@ -47,7 +47,7 @@ mg.Draw("ap3")
 mg.SetTitle("pdf of s, s~")
 mg.GetXaxis().SetTitle("log x")
 mg.GetYaxis().SetTitle("PDF")
-c.SaveAs("testwithresize.pdf")
+c.SaveAs("testwithx.pdf")
 
 #print x
 #print y
