@@ -44,7 +44,9 @@ gr1.Draw("ap3")
 mg.Add(gr1)
 #mg.Add(gr2)
 mg.Draw("ap3")
-mg.SetTitle("Test")
+mg.SetTitle("pdf of s, s~")
+mg.GetXaxis().SetTitle("log x")
+mg.GetYaxis().SetTitle("PDF")
 c.SaveAs("test.pdf")
 
 #print x
