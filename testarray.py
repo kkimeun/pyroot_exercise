@@ -42,7 +42,7 @@ gr1.SetMarkerStyle(20)
 gr1.Draw("ap3")
 
 mg.Add(gr1)
-#mg.Add(gr2)
+mg.Add(gr2)
 mg.Draw("ap3")
 mg.SetTitle("pdf of s, s~")
 mg.GetXaxis().SetTitle("log x")
