@@ -30,13 +30,13 @@ for i in range(N):
     gr2.SetPointError(i,0,ey2)
 
 gr2.SetMarkerColor(2)
-gr2.SetMarkerSize(0.3)
+gr2.SetMarkerSize(0.5)
 gr2.SetMarkerStyle(20)
 #gr2.Draw("ap4")
 #mycolor=4
 #gr.SetFillColorAlpha(mycolor,0.3)
 gr1.SetMarkerColor(4)
-gr1.SetMarkerSize(0.3)
+gr1.SetMarkerSize(0.5)
 gr1.SetMarkerStyle(20)
 #gr.Draw("ap3")
 
