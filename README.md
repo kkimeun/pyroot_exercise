@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # SKFlatAnalyzer
 
 ## Manual
@@ -101,3 +102,7 @@ python Summarize.py
 
 Start from the CMSSNU's master branch of CMSSNU when making pull request to prevent anoying conflicts.
 
+=======
+# pyroot_exercise
+For student intern
+>>>>>>> c538c4b4a89b5948f6467dac498976b12040daa5
