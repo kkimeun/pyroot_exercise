@@ -9,6 +9,8 @@ arr_logx=loaded_array['arr_logx']
 arr_y=loaded_array['arr_y']
 #arr_z=loaded_array['arr_z']
 gr=ROOT.TGraphErrors()
+gr2=ROOT.TGraphErrors()
+mg=ROOT.TMultiGraph()
 N=len(arr_logx)
 for i in range(N):
     logx=arr_logx[i]
@@ -19,15 +21,22 @@ for i in range(N):
     ey=0
     gr.SetPoint(i,logx,y)
     gr.SetPointError(i,0,ey)
-
+    
+    gr2.SetPoint(i,-3,2)
+    gr2.SetPointError(i,0,1)
+gr2.SetMarkerColor(2)
+#gr2.Draw("ap4")
 mycolor=4
 gr.SetFillColorAlpha(mycolor,0.3)
 gr.SetMarkerColor(mycolor)
 gr.SetMarkerSize(0.3)
 gr.SetMarkerStyle(20)
-gr.Draw("ap3")
+#gr.Draw("ap3")
 
-gr.SetTitle("Test")
+mg.Add(gr,"ap3")
+mg.Add(gr2,"ap4")
+mg.Draw("ap5")
+#gr.SetTitle("Test")
 c.SaveAs("test.pdf")
 
 #print x
