@@ -24,7 +24,7 @@ for i in range(N):
     ey1=arr_serr[i]
     #ey2=arr_sbarerr[i]
     gr1.SetPoint(i,logx,s)
-    gr1.SetPointError(i,0,1)
+    gr1.SetPointError(i,0,10)
     
     #gr2.SetPoint(i,logx,sbar)
     #gr2.SetPointError(i,0,ey2)
@@ -38,7 +38,7 @@ for i in range(N):
 gr1.SetMarkerColor(4)
 gr1.SetMarkerSize(0.5)
 gr1.SetMarkerStyle(20)
-gr1.Draw("ap3")
+gr1.Draw()
 
 #mg.Add(gr1)
 #mg.Add(gr2)
