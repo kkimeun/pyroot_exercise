@@ -24,7 +24,7 @@ for i in range(N):
     ey1=arr_serr[i]
     ey2=arr_sbarerr[i]
     gr1.SetPoint(i,logx,s)
-    gr1.SetPointError(i,0,ey1)
+    gr1.SetPointError(i,0,1)
     
     gr2.SetPoint(i,logx,sbar)
     gr2.SetPointError(i,0,ey2)
