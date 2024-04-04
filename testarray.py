@@ -3,7 +3,7 @@ import ROOT
 from numpy import array
 
 c=ROOT.TCanvas()
-loaded_array=np.load('/home/snuintern3/LHAPDFexercise/LHAPDF_exercise/arrays.npz')
+loaded_array=np.load('/home/snuintern3/LHAPDFexercise/LHAPDF_exercise/arrays2.npz')
 arr_logx=loaded_array['arr_logx']
 #arr_x=loaded_array['arr_x']
 arr_s=loaded_array['arr_s']
@@ -47,7 +47,7 @@ mg.Draw("ap3")
 mg.SetTitle("pdf of s, s~")
 mg.GetXaxis().SetTitle("log x")
 mg.GetYaxis().SetTitle("PDF")
-c.SaveAs("test.pdf")
+c.SaveAs("testwithresize.pdf")
 
 #print x
 #print y

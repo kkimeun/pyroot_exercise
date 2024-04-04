@@ -84,7 +84,7 @@ arr_s=[]
 arr_serr=[]
 arr_sbar=[]
 arr_sbarerr=[]
-y=np.arange(-5,-1,0.5)
+y=np.arange(-3,0,0.5)
 for i in y:
     x= 10**i
     s_pdf,sbar_pdf,s_err,sbar_err=GetStoSbar(x,Q2,lhapdf_name)
@@ -103,4 +103,4 @@ print (arr_s)
 print (arr_serr)
 print (arr_sbar)
 print (arr_sbarerr)     
-np.savez('arrays.npz',arr_logx=arr_logx,arr_x=arr_x,arr_s=arr_s,arr_sbar=arr_sbar,arr_serr=arr_serr,arr_sbarerr=arr_sbarerr)
+np.savez('arrays2.npz',arr_logx=arr_logx,arr_x=arr_x,arr_s=arr_s,arr_sbar=arr_sbar,arr_serr=arr_serr,arr_sbarerr=arr_sbarerr)
