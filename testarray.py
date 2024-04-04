@@ -25,18 +25,20 @@ for i in range(N):
     gr2.SetPoint(i,-3,2)
     gr2.SetPointError(i,0,1)
 gr2.SetMarkerColor(2)
+gr2.SetMarkerSize(0.3)
+gr2.SetMarkerStyle(20)
 #gr2.Draw("ap4")
-mycolor=4
-gr.SetFillColorAlpha(mycolor,0.3)
-gr.SetMarkerColor(mycolor)
+#mycolor=4
+#gr.SetFillColorAlpha(mycolor,0.3)
+gr.SetMarkerColor(4)
 gr.SetMarkerSize(0.3)
 gr.SetMarkerStyle(20)
 #gr.Draw("ap3")
 
-mg.Add(gr,"ap3")
-mg.Add(gr2,"ap4")
-mg.Draw("ap5")
-#gr.SetTitle("Test")
+mg.Add(gr)
+mg.Add(gr2)
+mg.Draw("ap3")
+mg.SetTitle("Test")
 c.SaveAs("test.pdf")
 
 #print x
